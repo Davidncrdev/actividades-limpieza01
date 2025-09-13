@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==== Variables de color ==== */
+:root {
+  --color-bg: #ffffff;      /* blanco */
+  --color-primary: #0ea5e9; /* azul (tailwind sky-500) */
+  --color-secondary: #22c55e; /* verde (tailwind green-500) */
+  --color-text: #111827;   /* gris muy oscuro */
+}
+
+/* ==== Reset / Base ==== */
+html, body {
+  height: 100%;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* ==== Links ==== */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==== Botones base ==== */
+button {
+  @apply px-4 py-2 rounded-lg font-medium transition;
+  background-color: var(--color-primary);
+  color: white;
+}
+button:hover {
+  background-color: var(--color-secondary);
+}
+
+/* ==== Titulares ==== */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-bold;
+  color: var(--color-primary);
+}
