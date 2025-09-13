@@ -4,7 +4,7 @@ import './globals.css'
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Card } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -358,91 +358,149 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="sobre-nosotros" className="section-padding bg-white">
-          <div className="container">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              {/* Contenido */}
-              <div>
-                <Badge className="bg-brand-blue-100 text-brand-blue-700 hover:bg-brand-blue-200 mb-6">
-                  Sobre Nosotros
-                </Badge>
-                
-                <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-6">
-                  Expertos en limpieza profesional con 
-                  <span className="gradient-text"> años de experiencia</span>
-                </h2>
-                
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  En <strong>Actividades de Limpieza</strong> ofrecemos servicios especializados 
-                  de limpieza y mantenimiento para oficinas, comunidades, locales comerciales, 
-                  parkings y finalización de obras en Málaga y toda la Costa del Sol.
-                </p>
+        <section id="sobre-nosotros" className="py-20 lg:py-28 bg-cream-white relative overflow-hidden">
+          {/* Elementos decorativos de fondo */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-ocean-blue rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-mint-green rounded-full blur-3xl"></div>
+          </div>
 
-                <p className="text-slate-600 mb-8 leading-relaxed">
-                  Atendemos a cada cliente de manera completamente personalizada, buscando 
-                  en todo momento satisfacer sus necesidades con un trato comprometido, 
-                  cercano y especializado.
-                </p>
+          <div className="container relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 xl:gap-20 items-center">
+              {/* Contenido principal */}
+              <div className="space-y-8">
+                <div>
+                  <Badge className="bg-ocean-blue/10 text-ocean-blue hover:bg-ocean-blue/20 mb-6 px-4 py-2">
+                    <Star className="w-4 h-4 mr-2" />
+                    Sobre Nosotros
+                  </Badge>
+                  
+                  <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    Expertos en limpieza profesional con{' '}
+                    <span className="bg-gradient-to-r from-ocean-blue to-mint-green bg-clip-text text-transparent">
+                      años de experiencia
+                    </span>
+                  </h2>
+                  
+                  <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                    <p>
+                      En <strong className="text-ocean-blue">Actividades de Limpieza</strong> ofrecemos servicios especializados 
+                      de limpieza y mantenimiento para oficinas, comunidades, locales comerciales, 
+                      parkings y finalización de obras en <strong>Málaga y toda la Costa del Sol</strong>.
+                    </p>
 
-                {/* Features */}
-                <div className="space-y-3 mb-8">
+                    <p>
+                      Atendemos a cada cliente de manera completamente personalizada, buscando 
+                      en todo momento satisfacer sus necesidades con un trato comprometido, 
+                      cercano y especializado.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Features mejoradas */}
+                <div className="space-y-4">
                   {[
                     'Servicio personalizado para cada cliente',
                     'Productos de limpieza ecológicos y certificados',
                     'Equipos profesionales de última generación',
                     'Cobertura completa en Málaga y Costa del Sol'
                   ].map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <CheckCircle className="w-5 h-5 text-brand-green-600 flex-shrink-0" />
-                      <span className="text-slate-700">{feature}</span>
+                    <div key={index} className="flex items-center gap-4 p-3 rounded-lg hover:bg-white/50 transition-colors">
+                      <div className="w-8 h-8 bg-mint-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="w-5 h-5 text-mint-green" />
+                      </div>
+                      <span className="text-gray-800 font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>
+
+                {/* CTA Button */}
+                <div className="pt-4">
+                  <Button className="bg-ocean-blue hover:bg-mint-green text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    Solicitar Presupuesto Gratuito
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </div>
               </div>
 
-              {/* Values Cards */}
+              {/* Values Cards mejoradas */}
               <div className="grid sm:grid-cols-2 gap-6">
                 {[
                   {
                     icon: <Shield className="w-8 h-8" />,
                     title: 'Compromiso',
-                    description: 'Mantenemos un trato comprometido y especializado en cada trabajo.',
-                    color: 'green'
+                    description: 'Mantenemos un trato comprometido y especializado en cada trabajo que realizamos.',
+                    color: 'mint-green',
+                    bgColor: 'mint-green/10',
+                    hoverBg: 'mint-green/20'
                   },
                   {
                     icon: <Heart className="w-8 h-8" />,
                     title: 'Cercanía',
-                    description: 'Tratamiento personalizado y cercano con todos nuestros clientes.',
-                    color: 'blue'
+                    description: 'Tratamiento personalizado y cercano con todos nuestros clientes y proyectos.',
+                    color: 'ocean-blue',
+                    bgColor: 'ocean-blue/10',
+                    hoverBg: 'ocean-blue/20'
                   },
                   {
                     icon: <Clock className="w-8 h-8" />,
                     title: 'Puntualidad',
-                    description: 'Cumplimos siempre con los horarios acordados y plazos establecidos.',
-                    color: 'green'
+                    description: 'Cumplimos siempre con los horarios acordados y plazos establecidos contigo.',
+                    color: 'mint-green',
+                    bgColor: 'mint-green/10',
+                    hoverBg: 'mint-green/20'
                   },
                   {
                     icon: <Users className="w-8 h-8" />,
                     title: 'Profesionalidad',
-                    description: 'Equipo altamente cualificado con años de experiencia en el sector.',
-                    color: 'blue'
+                    description: 'Equipo altamente cualificado con años de experiencia en el sector de limpieza.',
+                    color: 'ocean-blue',
+                    bgColor: 'ocean-blue/10',
+                    hoverBg: 'ocean-blue/20'
                   }
                 ].map((value, index) => (
-                  <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 border-0 bg-gradient-to-br from-white to-slate-50 hover:-translate-y-1">
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${
-                      value.color === 'green' 
-                        ? 'bg-brand-green-100 text-brand-green-600' 
-                        : 'bg-brand-blue-100 text-brand-blue-600'
-                    }`}>
-                      {value.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {value.description}
-                    </p>
+                  <Card 
+                    key={index} 
+                    className={`group p-6 border-0 bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer`}
+                  >
+                    <CardContent className="p-0">
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-${value.bgColor} text-${value.color} group-hover:bg-${value.hoverBg} group-hover:scale-110 transition-all duration-300`}>
+                        {value.icon}
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-ocean-blue transition-colors">
+                        {value.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 leading-relaxed">
+                        {value.description}
+                      </p>
+                      
+                      {/* Línea decorativa */}
+                      <div className={`w-0 h-1 bg-gradient-to-r from-${value.color} to-transparent mt-4 group-hover:w-full transition-all duration-500`}></div>
+                    </CardContent>
                   </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Stats adicionales */}
+            <div className="mt-20 pt-16 border-t border-gray-200/50">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                {[
+                  { number: '500+', label: 'Clientes Satisfechos' },
+                  { number: '5+', label: 'Años de Experiencia' },
+                  { number: '24/7', label: 'Atención al Cliente' },
+                  { number: '100%', label: 'Garantía de Calidad' }
+                ].map((stat, index) => (
+                  <div key={index} className="space-y-2">
+                    <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-ocean-blue to-mint-green bg-clip-text text-transparent">
+                      {stat.number}
+                    </div>
+                    <div className="text-gray-600 font-medium">
+                      {stat.label}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

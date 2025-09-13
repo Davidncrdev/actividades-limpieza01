@@ -2,44 +2,340 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==== Variables de color ==== */
+/* ================================
+   🎨 VARIABLES DE COLORES VIBRANTES
+   ================================ */
 :root {
-  --color-bg: #ffffff;      /* blanco */
-  --color-primary: #0ea5e9; /* azul (tailwind sky-500) */
-  --color-secondary: #22c55e; /* verde (tailwind green-500) */
-  --color-text: #111827;   /* gris muy oscuro */
+  /* Colores Base */
+  --ocean-blue: 0 121 145;
+  --mint-green: 67 154 134;
+  --cream-white: 244 244 248;
+  
+  /* Paleta Expandida con Variaciones */
+  --ocean-blue-light: 51 167 191;
+  --ocean-blue-dark: 0 95 113;
+  --mint-green-light: 102 179 164;
+  --mint-green-dark: 45 120 104;
+  --cream-dark: 220 220 228;
+  
+  /* Colores de Acento Vibrantes */
+  --coral: 255 107 107;
+  --sunset: 255 154 0;
+  --lavender: 138 120 255;
+  --emerald: 52 211 153;
+  --rose-gold: 255 183 178;
+  
+  /* Sistema de Grises Coloridos */
+  --gray-50: 250 251 252;
+  --gray-100: 241 245 249;
+  --gray-200: 226 232 240;
+  --gray-300: 203 213 225;
+  --gray-400: 148 163 184;
+  --gray-500: 100 116 139;
+  --gray-600: 71 85 105;
+  --gray-700: 51 65 85;
+  --gray-800: 30 41 59;
+  --gray-900: 15 23 42;
+
+  /* ================================
+     🌈 TEMA CLARO COLORIDO
+     ================================ */
+  --background: var(--cream-white);
+  --foreground: var(--gray-900);
+  
+  --card: 255 255 255;
+  --card-foreground: var(--gray-800);
+  
+  --popover: 255 255 255;
+  --popover-foreground: var(--gray-900);
+  
+  --primary: var(--ocean-blue);
+  --primary-foreground: 255 255 255;
+  
+  --secondary: var(--mint-green);
+  --secondary-foreground: 255 255 255;
+  
+  --muted: var(--gray-100);
+  --muted-foreground: var(--gray-600);
+  
+  --accent: var(--coral);
+  --accent-foreground: 255 255 255;
+  
+  --destructive: 239 68 68;
+  --destructive-foreground: 255 255 255;
+  
+  --border: var(--gray-200);
+  --input: var(--gray-100);
+  --ring: var(--ocean-blue);
+  
+  --radius: 0.75rem;
+  
+  /* Gradientes Coloridos */
+  --gradient-primary: linear-gradient(135deg, rgb(var(--ocean-blue)), rgb(var(--mint-green)));
+  --gradient-secondary: linear-gradient(135deg, rgb(var(--mint-green)), rgb(var(--emerald)));
+  --gradient-accent: linear-gradient(135deg, rgb(var(--coral)), rgb(var(--sunset)));
+  --gradient-hero: linear-gradient(135deg, rgb(var(--ocean-blue-dark)), rgb(var(--mint-green-light)));
+  
+  /* Sombras Coloridas */
+  --shadow-blue: 0 10px 30px rgba(var(--ocean-blue), 0.3);
+  --shadow-green: 0 10px 30px rgba(var(--mint-green), 0.3);
+  --shadow-coral: 0 10px 30px rgba(var(--coral), 0.3);
+  --shadow-multi: 0 10px 30px rgba(var(--ocean-blue), 0.2), 0 0 20px rgba(var(--mint-green), 0.1);
 }
 
-/* ==== Reset / Base ==== */
-html, body {
-  height: 100%;
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+/* ================================
+   🌙 TEMA OSCURO COLORIDO
+   ================================ */
+.dark {
+  --background: var(--gray-900);
+  --foreground: var(--gray-100);
+  
+  --card: var(--gray-800);
+  --card-foreground: var(--gray-100);
+  
+  --popover: var(--gray-800);
+  --popover-foreground: var(--gray-100);
+  
+  --primary: var(--ocean-blue-light);
+  --primary-foreground: var(--gray-900);
+  
+  --secondary: var(--mint-green-light);
+  --secondary-foreground: var(--gray-900);
+  
+  --muted: var(--gray-700);
+  --muted-foreground: var(--gray-400);
+  
+  --accent: var(--lavender);
+  --accent-foreground: var(--gray-900);
+  
+  --destructive: 248 113 113;
+  --destructive-foreground: var(--gray-100);
+  
+  --border: var(--gray-700);
+  --input: var(--gray-700);
+  --ring: var(--ocean-blue-light);
+  
+  /* Gradientes Oscuros Coloridos */
+  --gradient-primary: linear-gradient(135deg, rgb(var(--ocean-blue-light)), rgb(var(--mint-green-light)));
+  --gradient-secondary: linear-gradient(135deg, rgb(var(--mint-green-light)), rgb(var(--emerald)));
+  --gradient-accent: linear-gradient(135deg, rgb(var(--lavender)), rgb(var(--rose-gold)));
+  --gradient-hero: linear-gradient(135deg, rgb(var(--ocean-blue)), rgb(var(--mint-green)));
+  
+  /* Sombras Oscuras Coloridas */
+  --shadow-blue: 0 10px 30px rgba(var(--ocean-blue-light), 0.4);
+  --shadow-green: 0 10px 30px rgba(var(--mint-green-light), 0.4);
+  --shadow-coral: 0 10px 30px rgba(var(--lavender), 0.4);
+  --shadow-multi: 0 10px 30px rgba(var(--ocean-blue-light), 0.3), 0 0 20px rgba(var(--mint-green-light), 0.2);
 }
 
-/* ==== Links ==== */
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+/* ================================
+   🎨 ESTILOS BASE COLORIDOS
+   ================================ */
+* {
+  @apply border-border;
+  box-sizing: border-box;
 }
 
-/* ==== Botones base ==== */
-button {
-  @apply px-4 py-2 rounded-lg font-medium transition;
-  background-color: var(--color-primary);
+html {
+  scroll-behavior: smooth;
+  /* Fondo con gradiente sutil */
+  background: linear-gradient(135deg, 
+    rgb(var(--cream-white)) 0%, 
+    rgb(var(--gray-50)) 50%, 
+    rgb(var(--cream-white)) 100%);
+}
+
+body {
+  @apply bg-transparent text-foreground font-sans antialiased;
+  /* Patrón de fondo sutil */
+  background-image: 
+    radial-gradient(circle at 25% 25%, rgba(var(--ocean-blue), 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(var(--mint-green), 0.05) 0%, transparent 50%);
+  background-size: 100px 100px;
+  background-attachment: fixed;
+}
+
+/* ================================
+   🚀 CLASES UTILITARIAS COLORIDAS
+   ================================ */
+.gradient-primary {
+  background: var(--gradient-primary);
+}
+
+.gradient-secondary {
+  background: var(--gradient-secondary);
+}
+
+.gradient-accent {
+  background: var(--gradient-accent);
+}
+
+.gradient-hero {
+  background: var(--gradient-hero);
+}
+
+.gradient-text-primary {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-secondary {
+  background: var(--gradient-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-blue {
+  box-shadow: var(--shadow-blue);
+}
+
+.shadow-green {
+  box-shadow: var(--shadow-green);
+}
+
+.shadow-coral {
+  box-shadow: var(--shadow-coral);
+}
+
+.shadow-multi {
+  box-shadow: var(--shadow-multi);
+}
+
+/* ================================
+   ✨ EFECTOS Y ANIMACIONES COLORIDAS
+   ================================ */
+.glow-blue {
+  box-shadow: 0 0 20px rgba(var(--ocean-blue), 0.5);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(var(--mint-green), 0.5);
+}
+
+.glow-coral {
+  box-shadow: 0 0 20px rgba(var(--coral), 0.5);
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.pulse-color {
+  animation: pulseColor 2s ease-in-out infinite;
+}
+
+@keyframes pulseColor {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(var(--ocean-blue), 0.7);
+  }
+  50% { 
+    box-shadow: 0 0 0 10px rgba(var(--ocean-blue), 0);
+  }
+}
+
+/* ================================
+   🎯 ELEMENTOS ESPECÍFICOS COLORIDOS
+   ================================ */
+.hero-pattern {
+  background-image: 
+    linear-gradient(45deg, rgba(var(--ocean-blue), 0.1) 25%, transparent 25%), 
+    linear-gradient(-45deg, rgba(var(--mint-green), 0.1) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(var(--coral), 0.05) 75%), 
+    linear-gradient(-45deg, transparent 75%, rgba(var(--emerald), 0.05) 75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
+}
+
+.card-colorful {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(var(--cream-white), 0.8) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(var(--ocean-blue), 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-colorful:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(var(--cream-white), 0.9) 100%);
+  border-color: rgba(var(--ocean-blue), 0.3);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-multi);
+}
+
+.btn-colorful {
+  background: var(--gradient-primary);
   color: white;
-}
-button:hover {
-  background-color: var(--color-secondary);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-/* ==== Titulares ==== */
-h1, h2, h3, h4, h5, h6 {
-  @apply font-bold;
-  color: var(--color-primary);
+.btn-colorful::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-colorful:hover::before {
+  left: 100%;
+}
+
+.btn-colorful:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-blue);
+}
+
+/* ================================
+   📱 SCROLLBAR COLORIDA
+   ================================ */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--gray-100));
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gradient-primary);
+  border-radius: 6px;
+  border: 2px solid rgb(var(--gray-100));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gradient-secondary);
+}
+
+/* ================================
+   🔥 SELECCIÓN DE TEXTO COLORIDA
+   ================================ */
+::selection {
+  background: rgba(var(--ocean-blue), 0.3);
+  color: rgb(var(--gray-900));
+}
+
+::-moz-selection {
+  background: rgba(var(--ocean-blue), 0.3);
+  color: rgb(var(--gray-900));
 }
