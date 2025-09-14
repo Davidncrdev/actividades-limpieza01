@@ -14,14 +14,13 @@ import {
   Menu, Phone, Mail, MapPin, CheckCircle, Star, ArrowRight, 
   Sparkles, Building2, Home as HomeIcon, HardHat, Heart, Shield, Clock, 
   Users, Quote, Send, MessageCircle, X, Facebook, Instagram,
-  Twitter, Linkedin, ExternalLink
+   Linkedin, 
 } from 'lucide-react'
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isChatOpen, setIsChatOpen] = useState(false)
-  const [activeTestimonial, setActiveTestimonial] = useState(0)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -527,7 +526,7 @@ export default function Home() {
 
             {/* Services Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <Card key={service.id} className="service-card h-full">
                   <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
                     service.color === 'green' 
@@ -568,7 +567,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials Section */}
+        
         <section id="testimonios" className="section-padding bg-white">
           <div className="container">
             <div className="text-center mb-16">
@@ -596,13 +595,13 @@ export default function Home() {
                   <Quote className="w-8 h-8 text-brand-green-600 mb-4 opacity-50" />
                   
                   <p className="text-slate-600 mb-6 italic leading-relaxed">
-                    "{testimonial.text}"
+                    &quot;{testimonial.text}&quot;
                   </p>
                   
                   <div className="border-t pt-4">
                     <div className="font-semibold text-slate-900">{testimonial.name}</div>
                     <div className="text-sm text-brand-green-600">{testimonial.company}</div>
-                  </div>
+                  </div>`
                 </Card>
               ))}
             </div>
